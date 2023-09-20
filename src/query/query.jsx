@@ -1,17 +1,18 @@
-import axios from "axios";
-import { useState } from "react";
+import { useQuery } from "react-query";
+import fetch from "./getQuery";
 
 export default function Api() {
-  const [result, setResult] = useState([]);
-  async function getResult() {
-    const res = await axios.get("https://jsonplaceholder.typicode.com/posts/1");
-    setResult(res.data);
+  const { data, isLoading } = useQuery("query", () => fetch());
+
+  // console.log(data.data.info.seed);
+  if (isLoading) {
+    return <h1>loading ...</h1>;
   }
+
   return (
     <div>
-      <h1>hello world</h1>
-      <div>{result?.title}</div>
-      <button onClick={() => getResult()}>fetch</button>
+      <h1>Api fetching.</h1>
+      <p>{data.status}</p>
     </div>
   );
 }

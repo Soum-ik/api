@@ -1,10 +1,16 @@
+import { QueryClientProvider, QueryClient } from "react-query";
+import Api from "./query/query";
+// import { useEffect, useState } from "react";
 
-
-import Api from "./swr/swr";
 export default function App() {
+  const clicnt = new QueryClient();
+
   return (
-    
-      <Api />
-    
+    <>
+      <QueryClientProvider client={clicnt}>
+        <Api />
+        <Api />
+      </QueryClientProvider>
+    </>
   );
 }
