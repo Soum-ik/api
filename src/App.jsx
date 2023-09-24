@@ -1,9 +1,8 @@
-import Weater from "./components/weather/weather";
+import Box from "./components/box";
+
 
 export default function App() {
-  return (
-    <div className="app">
-      <Weater />
-    </div>
-  );
+    return (
+        <Box/>
+    );
 }

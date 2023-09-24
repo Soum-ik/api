@@ -1,0 +1,9 @@
+.container-row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    margin: 30px;
+}
